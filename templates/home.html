@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Personal Expense Tracker</title>
+</head>
+<body>
+
+    <h1>Personal Expense Tracker</h1>
+    <form action="{% url 'logout' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+</form>
+
+    <h2>This Month</h2>
+    <h1>₹{{ monthly_total }}</h1>
+
+    <h2>Add Expense</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit">Add Expense</button>
+    </form>
+
+    <h2>Recent Expenses</h2>
+
+    {% for expense in expenses %}
+        <div>
+            <h3>{{ expense.category }} - ₹{{ expense.amount }}</h3>
+            <p>{{ expense.description }}</p>
+            <p>{{ expense.date }}</p>
+        </div>
+    {% empty %}
+        <p>No expenses found.</p>
+    {% endfor %}
+
+</body>
+</html>
