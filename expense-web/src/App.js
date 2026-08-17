@@ -37,10 +37,9 @@ function App() {
   };
 
   useEffect(() => {
-    if (token) {
-      fetchExpenses();
-    }
-  }, [token]);
+    fetchExpenses();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+}, []);
 
   const handleLogin = async (e) => {
     e.preventDefault();
