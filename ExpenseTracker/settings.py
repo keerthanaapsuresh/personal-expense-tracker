@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-$5p3=-y&v_oc@=7pz6ywzhubl0(+-p@1=qu!z$2$ue#8&z*zf_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -145,3 +145,4 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ],
 }
+STATIC_ROOT = BASE_DIR / "staticfiles"
